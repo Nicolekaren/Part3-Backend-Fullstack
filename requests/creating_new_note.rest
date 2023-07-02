@@ -1,0 +1,11 @@
+POST http://localhost:3006/api/persons
+
+Content-Type: "application/json"
+
+{
+    
+        "name": "does everything still work??",
+        "number": "2323232-232323"
+      
+      
+}
