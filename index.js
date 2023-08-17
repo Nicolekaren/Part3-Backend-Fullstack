@@ -1,7 +1,7 @@
 require('dotenv').config()
-const express = require('express')
-const app = express()
-const morgan = require('morgan')
+const express = require('express') //
+const app = express() //
+const morgan = require('morgan') //
 const cors = require('cors')
 app.use(express.json())
 app.use(cors())
@@ -23,6 +23,7 @@ app.get('/api/persons', (req, res) => {
 
 app.post('/api/persons', (request, response, next) => {
   const body = request.body
+  console.log(body) //delete this
 
   if (body.name === undefined) {
     return response.status(400).json({
@@ -71,7 +72,7 @@ app.get('/api/persons/:id', (request, response, next ) => {
         response.status(404).end()
       }
     })
-    .catch(error => res.status(404).end())
+    .catch(error => next(error))
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
